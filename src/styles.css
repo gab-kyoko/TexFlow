@@ -1,0 +1,1057 @@
+/* ----------------------- PASSO 1 - FONTES, CORES E REGRAS GLOBAIS ----------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #351d23;
+  background: #f8f1e8;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+.app-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, #f1dcbb 0, transparent 26rem), #f8f1e8;
+}
+
+/* ----------------------- PASSO 2 - CABEÇALHO E APRESENTAÇÃO PRINCIPAL ----------------------- */
+
+.topbar {
+  height: 76px;
+  padding: 12px clamp(20px, 4vw, 64px);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #fffaf4e8;
+  border-bottom: 1px solid #e9dbcc;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+.topbar img {
+  width: 135px;
+  height: 45px;
+  object-fit: contain;
+  object-position: left;
+}
+.topbar span {
+  color: #7d5d50;
+  font-size: 0.9rem;
+  flex: 1;
+}
+.help-link {
+  color: #6f253a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 4px;
+  border-bottom: 2px solid transparent;
+}
+.help-link:hover,
+.help-link:focus {
+  border-color: #c28b32;
+}
+.outline {
+  background: transparent;
+  border: 1px solid #8e2742;
+  border-radius: 8px;
+  color: #7b1d37;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+.hero {
+  padding: 52px clamp(20px, 7vw, 108px) 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  background: linear-gradient(120deg, #651b32, #8a2742 62%, #ad7423);
+  color: #fff8ed;
+}
+.hero h1 {
+  font:
+    700 clamp(2.1rem, 4vw, 4rem) / 1.05 "Playfair Display",
+    serif;
+  margin: 8px 0 14px;
+  max-width: 650px;
+}
+.hero p {
+  max-width: 620px;
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.eyebrow {
+  color: #f4c574;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem !important;
+  font-weight: 700;
+}
+.hero-stat {
+  min-width: 210px;
+  padding: 20px;
+  border: 1px solid #f8d49488;
+  border-radius: 14px;
+  background: #44112235;
+}
+.hero-stat strong {
+  display: block;
+  color: #f8d494;
+  font:
+    700 2.3rem "Playfair Display",
+    serif;
+}
+.hero-stat span {
+  font-size: 0.85rem;
+}
+
+/* ----------------------- PASSO 3 - ÁREA DE TRABALHO E FORMULÁRIO ----------------------- */
+
+.workspace {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr 1.35fr;
+  gap: 20px;
+}
+.panel {
+  background: #fffaf5;
+  border: 1px solid #eadbcb;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 8px 24px #6b33200c;
+}
+.panel-title {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  border-bottom: 1px solid #eee1d6;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+.panel-title > span {
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  background: #7d1f3b;
+  color: #fff7e9;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.panel h2 {
+  font:
+    700 1.25rem "Playfair Display",
+    serif;
+  margin: 0;
+}
+.panel-title p {
+  margin: 3px 0 0;
+  font-size: 0.8rem;
+  color: #876f68;
+}
+.form-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  align-content: start;
+}
+.form-panel .panel-title,
+.machine-note {
+  grid-column: 1 / -1;
+}
+.form-panel label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6a4b46;
+}
+.form-panel .wide {
+  grid-column: 1 / -1;
+}
+input,
+select {
+  width: 100%;
+  border: 1px solid #dac8b9;
+  border-radius: 7px;
+  padding: 10px;
+  background: #fffdfa;
+  color: #351d23;
+  outline-color: #ad7423;
+}
+.machine-note {
+  border-left: 3px solid #cc942f;
+  padding: 9px 10px;
+  background: #fff3dd;
+  display: grid;
+  gap: 3px;
+  font-size: 0.76rem;
+}
+.machine-note span {
+  color: #755f52;
+}
+
+/* ----------------------- PASSO 4 - ROTEIRO MTM E RESULTADOS PARCIAIS ----------------------- */
+
+.add-row {
+  display: flex;
+  gap: 8px;
+}
+.add-row button,
+.generate {
+  border: 0;
+  border-radius: 7px;
+  background: #8a2742;
+  color: #fff9ef;
+  font-weight: 700;
+  padding: 10px 13px;
+}
+.route-list {
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+  display: grid;
+  gap: 9px;
+}
+.route-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #eaded1;
+  border-radius: 8px;
+  padding: 10px;
+}
+.route-list .code {
+  color: #7d1f3b;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.route-list li div {
+  flex: 1;
+  display: grid;
+  gap: 3px;
+}
+.route-list b {
+  font-size: 0.82rem;
+}
+.route-list small {
+  color: #92776f;
+}
+.delete {
+  border: 0;
+  background: transparent;
+  color: #9c3451;
+  font-size: 1.4rem;
+}
+.empty {
+  color: #987c72;
+  font-size: 0.85rem;
+  justify-content: center;
+}
+.calculation {
+  border-top: 1px solid #eee1d6;
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 8px;
+  font-size: 0.78rem;
+}
+.calculation span {
+  color: #765b55;
+}
+.calculation span b {
+  display: block;
+  color: #3f292d;
+  margin-top: 2px;
+}
+.calculation strong {
+  color: #7d1f3b;
+  align-self: end;
+}
+
+/* ----------------------- PASSO 5 - PRÉVIA E EXPORTAÇÃO DA FICHA PO ----------------------- */
+
+.po-document {
+  border: 1px solid #dfcebe;
+  background: #fffefa;
+  padding: 18px;
+}
+.po-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #8a2742;
+  padding-bottom: 10px;
+}
+.po-head img {
+  width: 110px;
+  height: 37px;
+  object-fit: contain;
+  object-position: left;
+}
+.po-head div {
+  display: grid;
+  text-align: right;
+  font-size: 0.77rem;
+}
+.po-head span {
+  color: #836b63;
+}
+.po-document h3 {
+  font:
+    700 1rem "Playfair Display",
+    serif;
+  margin: 14px 0;
+}
+.po-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.7rem;
+  margin-bottom: 13px;
+}
+.po-meta span {
+  display: grid;
+  gap: 2px;
+}
+.po-meta b {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  color: #92766a;
+  letter-spacing: 0.04em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+th {
+  background: #6d1d36;
+  color: #fff9ef;
+  text-align: left;
+  padding: 8px 6px;
+}
+td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #eee4dc;
+}
+th:last-child,
+td:last-child {
+  text-align: right;
+}
+tfoot {
+  color: #7b1d37;
+  font-weight: 700;
+}
+tfoot td {
+  border-bottom: 0;
+  padding-top: 11px;
+}
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+.generate,
+.export {
+  width: 100%;
+  border: 0;
+  border-radius: 7px;
+  color: #fff9ef;
+  font-weight: 700;
+  padding: 10px 13px;
+}
+.generate {
+  background: linear-gradient(90deg, #7d1f3b, #a66c1d);
+}
+.export {
+  background: #5b3c42;
+}
+.success {
+  color: #5d7136;
+  font-size: 0.78rem;
+  margin: 10px 0 0;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  color: #8d746b;
+  font-size: 0.78rem;
+  padding: 14px 20px 30px;
+}
+
+/* ----------------------- PASSO 6 - CENTRAL DE AJUDA E AUDITORIA DOS CÁLCULOS ----------------------- */
+
+.help-section {
+  max-width: 1436px;
+  margin: 0 auto 32px;
+  padding: 34px;
+  border-radius: 18px;
+  background: #4b1727;
+  color: #fff8ee;
+  scroll-margin-top: 92px;
+  box-shadow: 0 18px 50px #4b172722;
+}
+.help-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.help-heading h2 {
+  font:
+    700 clamp(1.8rem, 3vw, 2.8rem) "Playfair Display",
+    serif;
+  margin: 5px 0 8px;
+}
+.help-heading > div > p:last-child {
+  color: #ddc8c4;
+  margin: 0;
+}
+.check-ok,
+.check-error {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 9px 13px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.check-ok {
+  background: #d8e3bd;
+  color: #40541c;
+}
+.check-error {
+  background: #f2c7c7;
+  color: #752b2b;
+}
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.help-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #f2d7b033;
+  border-radius: 12px;
+  background: #fff8ee0d;
+}
+.help-card h3 {
+  font:
+    700 1.05rem "Playfair Display",
+    serif;
+  margin: 3px 0 9px;
+}
+.help-card > p {
+  color: #d9c3bf;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  min-height: 58px;
+}
+.help-number {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #d99a35;
+  color: #3f1822;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+.formula {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: #250b14;
+  border-radius: 8px;
+}
+.formula code {
+  color: #efc374;
+  font-size: 0.72rem;
+}
+.formula strong {
+  color: #fff8ee;
+  font-size: 0.79rem;
+  overflow-wrap: anywhere;
+}
+.audit-panel {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fffaf5;
+  color: #351d23;
+}
+.audit-panel h3 {
+  font:
+    700 1.12rem "Playfair Display",
+    serif;
+  margin: 0;
+}
+.audit-panel > div > p {
+  color: #826b63;
+  font-size: 0.78rem;
+  margin: 4px 0 15px;
+}
+.audit-table-wrap {
+  overflow-x: auto;
+}
+.audit-table {
+  min-width: 620px;
+}
+.audit-table th {
+  background: #6d1d36;
+}
+.audit-table td:nth-last-child(-n + 3),
+.audit-table th:nth-last-child(-n + 3) {
+  text-align: right;
+}
+.help-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 3px solid #e1a643;
+  background: #fff8ee12;
+  color: #e9d8d3;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+/* ----------------------- PASSO 7 - RESPONSIVIDADE DA ESTRUTURA PRINCIPAL ----------------------- */
+
+@media (max-width: 1080px) {
+  .workspace {
+    grid-template-columns: 1fr 1fr;
+  }
+  .po-panel {
+    grid-column: 1 / -1;
+  }
+  .help-section {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+  .help-card > p {
+    min-height: auto;
+  }
+}
+@media (max-width: 680px) {
+  .topbar span {
+    display: none;
+  }
+  .topbar {
+    gap: 10px;
+  }
+  .help-link {
+    margin-left: auto;
+    font-size: 0.7rem;
+  }
+  .hero,
+  .workspace {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .hero {
+    display: block;
+  }
+  .hero-stat {
+    margin-top: 25px;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+    padding-top: 18px;
+  }
+  .po-panel {
+    grid-column: auto;
+  }
+  .form-panel {
+    grid-template-columns: 1fr;
+  }
+  .form-panel .wide {
+    grid-column: auto;
+  }
+  .add-row {
+    display: grid;
+  }
+  .topbar .outline {
+    display: none;
+  }
+  .help-section {
+    margin: 0 18px 24px;
+    padding: 22px 16px;
+  }
+  .help-heading {
+    display: grid;
+  }
+  .check-ok,
+  .check-error {
+    justify-self: start;
+  }
+}
+
+/* ----------------------- PASSO 8 - FLUXO, IMPORTAÇÃO E VALIDAÇÃO ----------------------- */
+
+.demo-button {
+  border: 0;
+  border-radius: 8px;
+  background: #6d1d36;
+  color: #fff8ee;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+.demo-guide {
+  position: sticky;
+  top: 76px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px clamp(20px, 4vw, 64px);
+  background: #251017;
+  color: #fff8ee;
+  box-shadow: 0 8px 20px #25101733;
+}
+.demo-guide > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.demo-guide > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+.demo-guide span {
+  color: #d8c4c1;
+  font-size: 0.78rem;
+}
+.demo-guide button {
+  border: 1px solid #d6aa5c;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff8ee;
+  padding: 6px 9px;
+}
+.demo-guide button:disabled {
+  opacity: 0.35;
+}
+.demo-guide .demo-close {
+  border: 0;
+  font-size: 1.3rem;
+}
+.command-bar,
+.validation-banner {
+  max-width: 1436px;
+  margin: 22px auto 0;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.command-bar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #fffaf5;
+  border: 1px solid #eadbcb;
+}
+.command-bar > div {
+  flex: 1;
+  display: grid;
+  gap: 3px;
+}
+.command-bar span {
+  color: #806a62;
+  font-size: 0.78rem;
+}
+.command-bar button {
+  border: 1px solid #8a2742;
+  border-radius: 7px;
+  background: #fffdfa;
+  color: #7d1f3b;
+  padding: 9px 11px;
+  font-weight: 700;
+}
+.command-bar button:first-of-type {
+  background: #7d1f3b;
+  color: #fff8ee;
+}
+.file-input {
+  display: none;
+}
+.validation-banner {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8rem;
+}
+.validation-banner.valid {
+  background: #e7edd9;
+  color: #435625;
+}
+.validation-banner.invalid {
+  align-items: start;
+  background: #f7dddd;
+  color: #752b2b;
+}
+.validation-banner ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 22px;
+  margin: 0;
+  padding-left: 18px;
+}
+.demo-focus {
+  outline: 4px solid #e2a33b;
+  outline-offset: 5px;
+  transition: outline-color 0.25s;
+}
+
+/* ----------------------- PASSO 9 - CONTROLES AVANÇADOS DO ROTEIRO ----------------------- */
+
+.add-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 78px auto;
+}
+.add-row input {
+  min-width: 0;
+}
+.route-list li {
+  align-items: center;
+}
+.route-list li > div:nth-of-type(1) {
+  min-width: 0;
+}
+.frequency-field {
+  display: grid;
+  gap: 2px;
+  color: #765b55;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+.frequency-field input {
+  width: 60px;
+  padding: 7px;
+}
+.order-buttons {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px !important;
+}
+.order-buttons button {
+  border: 1px solid #d9c5b6;
+  border-radius: 5px;
+  background: #fffdfa;
+  color: #6d1d36;
+  padding: 5px 7px;
+}
+.order-buttons button:disabled {
+  opacity: 0.35;
+}
+.export-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin-top: 14px;
+}
+.export-actions button {
+  border: 0;
+  border-radius: 7px;
+  background: #6d1d36;
+  color: #fff8ee;
+  padding: 10px 8px;
+  font-weight: 700;
+}
+.export-actions .save-action {
+  background: #a66c1d;
+}
+.export-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ----------------------- PASSO 10 - COMPARADOR DE MÁQUINAS E HISTÓRICO ----------------------- */
+
+.feature-section {
+  max-width: 1436px;
+  margin: 0 auto 24px;
+  padding: 30px;
+  border: 1px solid #eadbcb;
+  border-radius: 18px;
+  background: #fffaf5;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+.section-heading h2 {
+  font:
+    700 clamp(1.6rem, 2.5vw, 2.5rem) "Playfair Display",
+    serif;
+  margin: 5px 0 7px;
+}
+.section-heading > div > p:last-child {
+  margin: 0;
+  color: #806a62;
+}
+.best-machine {
+  min-width: 230px;
+  display: grid;
+  gap: 3px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #651b32;
+  color: #fff8ee;
+}
+.best-machine span {
+  color: #e6bd72;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.best-machine strong {
+  color: #f2ca7d;
+  font-size: 1.25rem;
+}
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.comparison-card {
+  padding: 18px;
+  border: 1px solid #e4d3c3;
+  border-radius: 12px;
+  background: #fffefa;
+}
+.comparison-card.best {
+  border: 2px solid #b67a20;
+  box-shadow: 0 9px 24px #a66c1d18;
+}
+.comparison-card > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #806a62;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.comparison-card em {
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: #e9d49e;
+  color: #624311;
+  font-style: normal;
+  font-weight: 700;
+}
+.comparison-card h3 {
+  font:
+    700 1.3rem "Playfair Display",
+    serif;
+  margin: 12px 0 2px;
+}
+.comparison-card > p {
+  color: #846f67;
+  font-size: 0.78rem;
+  margin: 0 0 14px;
+}
+.comparison-card dl {
+  margin: 0;
+  display: grid;
+  gap: 7px;
+}
+.comparison-card dl div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee2d7;
+  padding-bottom: 6px;
+}
+.comparison-card dt {
+  color: #806a62;
+  font-size: 0.74rem;
+}
+.comparison-card dd {
+  margin: 0;
+  color: #651b32;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+.comparison-card small {
+  display: block;
+  color: #9a6641;
+  margin-top: 9px;
+}
+.comparison-card button {
+  width: 100%;
+  margin-top: 13px;
+  border: 1px solid #8a2742;
+  border-radius: 7px;
+  background: #fffdfa;
+  color: #7d1f3b;
+  padding: 8px;
+  font-weight: 700;
+}
+.history-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.history-list article {
+  padding: 16px;
+  border: 1px solid #e4d3c3;
+  border-radius: 10px;
+  background: #fffefa;
+}
+.history-list article > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  color: #651b32;
+}
+.history-list article p {
+  min-height: 38px;
+  font-size: 0.8rem;
+}
+.history-list article small {
+  color: #806a62;
+}
+.history-list article > div:last-child {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
+}
+.history-list button {
+  flex: 1;
+  border: 1px solid #8a2742;
+  border-radius: 6px;
+  background: #fff;
+  color: #7d1f3b;
+  padding: 7px;
+  font-weight: 700;
+}
+.history-list .danger {
+  border-color: #c88e8e;
+  color: #963c3c;
+}
+.history-empty {
+  grid-column: 1 / -1;
+  padding: 28px;
+  border: 1px dashed #d5c1b2;
+  border-radius: 10px;
+  color: #806a62;
+  text-align: center;
+}
+
+/* ----------------------- PASSO 11 - RESPONSIVIDADE DOS RECURSOS AVANÇADOS ----------------------- */
+
+@media (max-width: 1480px) {
+  .command-bar,
+  .validation-banner,
+  .feature-section {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
+@media (max-width: 1080px) {
+  .command-bar {
+    flex-wrap: wrap;
+  }
+  .command-bar > div {
+    flex-basis: 100%;
+  }
+  .comparison-grid,
+  .history-list {
+    grid-template-columns: 1fr;
+  }
+  .section-heading {
+    align-items: stretch;
+  }
+  .best-machine {
+    min-width: 0;
+  }
+  .route-list li {
+    flex-wrap: wrap;
+  }
+  .route-list li > div:nth-of-type(1) {
+    flex-basis: calc(100% - 80px);
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: 68px;
+  }
+  .topbar img {
+    width: 105px;
+  }
+  .topbar .help-link,
+  .topbar .outline {
+    display: none;
+  }
+  .topbar .demo-button {
+    margin-left: auto;
+    font-size: 0.68rem;
+    padding: 8px;
+  }
+  .demo-guide {
+    top: 68px;
+    display: grid;
+  }
+  .demo-guide > div:last-child {
+    justify-content: space-between;
+  }
+  .command-bar,
+  .validation-banner,
+  .feature-section {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+  .command-bar button {
+    flex: 1 1 45%;
+  }
+  .validation-banner {
+    display: grid;
+  }
+  .validation-banner ul {
+    display: grid;
+  }
+  .add-row {
+    grid-template-columns: 1fr 70px;
+  }
+  .add-row button {
+    grid-column: 1 / -1;
+  }
+  .export-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+  .section-heading {
+    display: grid;
+  }
+  .feature-section {
+    padding: 22px 16px;
+  }
+  .history-list {
+    grid-template-columns: 1fr;
+  }
+}
