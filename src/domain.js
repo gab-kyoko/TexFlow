@@ -125,6 +125,8 @@ export function validateOperation(form, route, elements, machines) {
   if (!String(form.operation || "").trim()) errors.push("Informe a operação.");
   if (parseNumber(form.perimeter) <= 0)
     errors.push("O perímetro deve ser maior que zero.");
+  if (String(form.observedTime ?? "").trim() && parseNumber(form.observedTime) <= 0)
+    errors.push("O tempo observado deve ser maior que zero quando informado.");
   if (!machines.some((item) => item.code === String(form.machine)))
     errors.push("Selecione uma máquina válida.");
   if (!route.length) errors.push("Inclua pelo menos um elemento MTM.");
